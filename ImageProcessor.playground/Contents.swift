@@ -7,22 +7,22 @@ let image = UIImage(named: "sample")!
 
 let imageProcessor = ImageProcessor(image: image)
 
-imageProcessor.apply(GreyscaleFilter(factor: 3)).getImage()
+imageProcessor.apply(filter: GreyscaleFilter(factor: 3)).getImage()
 
-imageProcessor.restore().apply(InvertFilter()).getImage()
+imageProcessor.restore().apply(filter: InvertFilter()).getImage()
 
-imageProcessor.restore().apply(ContrastFilter(contrast: 20.0)).getImage()
+imageProcessor.restore().apply(filter: ContrastFilter(contrast: 20.0)).getImage()
 
-imageProcessor.restore().apply(BrightnessFilter(brightnessFactor: 100)).getImage()
+imageProcessor.restore().apply(filter: BrightnessFilter(brightnessFactor: 100)).getImage()
 
-imageProcessor.restore().apply(ColorFilter(colorFilterType: ColorFilterTypes.blue)).getImage()
+imageProcessor.restore().apply(filter: ColorFilter(colorFilterType: ColorFilterTypes.blue)).getImage()
 
 
 // Applying both ColorFilter and InvertFilter
-imageProcessor.restore().apply(ColorFilter(colorFilterType: ColorFilterTypes.red)).apply(InvertFilter()).getImage()
+imageProcessor.restore().apply(filter: ColorFilter(colorFilterType: ColorFilterTypes.red)).apply(filter: InvertFilter()).getImage()
 
 // Calling by string name
-imageProcessor.restore().apply("ContrastFilter").getImage()
+imageProcessor.restore().apply(filterType: "ContrastFilter").getImage()
 
 
 

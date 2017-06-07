@@ -11,12 +11,12 @@ public class ContrastFilter : ImageFilterProtocol{
         _contrast *= _contrast
     }
     
-    public func apply(var pixel: Pixel) -> Pixel {
-        pixel.red = adjustContrast(pixel.red)
-        pixel.blue = adjustContrast(pixel.blue)
-        pixel.green = adjustContrast(pixel.green)
-        
-        return pixel
+    public func apply(pixel: Pixel) -> Pixel {
+        var newPixel = pixel
+        newPixel.red = adjustContrast(value: pixel.red)
+        newPixel.blue = adjustContrast(value: pixel.blue)
+        newPixel.green = adjustContrast(value: pixel.green)
+        return newPixel
     }
     
     private func adjustContrast(value : UInt8) -> UInt8{
