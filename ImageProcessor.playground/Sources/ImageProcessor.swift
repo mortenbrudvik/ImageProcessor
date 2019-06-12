@@ -18,7 +18,7 @@ public class ImageProcessor{
                 
                 let pixel = _image.pixels[index]
                 
-                _image.pixels[index] = filter.apply(pixel)
+                _image.pixels[index] = filter.apply(pixel: pixel)
             }
         }
         
@@ -28,13 +28,13 @@ public class ImageProcessor{
     public func apply(filterType : String ) -> ImageProcessor{
         switch filterType{
             case "ColorFilter":
-                return self.apply(ColorFilter(colorFilterType: ColorFilterTypes.blue))
+                return self.apply(filter: ColorFilter(colorFilterType: ColorFilterTypes.blue))
             case "ContrastFilter":
-                return self.apply(ContrastFilter(contrast: 50.0))
+                return self.apply(filter: ContrastFilter(contrast: 50.0))
             case "GreyscaleFilter":
-                return self.apply(GreyscaleFilter(factor: 3))
+                return self.apply(filter: GreyscaleFilter(factor: 3))
             case "InvertFilter":
-                return self.apply(InvertFilter())
+                return self.apply(filter: InvertFilter())
         default:
             return self
         }

@@ -9,8 +9,9 @@ public class BrightnessFilter : ImageFilterProtocol{
         _brightness = brightnessFactor
     }
     
-    public func apply(var pixel: Pixel) -> Pixel {
+    public func apply(pixel: Pixel) -> Pixel {
         
+        var pixel = pixel
         pixel.red = UInt8(max(1, min(255, Int(pixel.red) + _brightness)))
         pixel.blue = UInt8(max(1, min(255, Int(pixel.blue) + _brightness)))
         pixel.green = UInt8(max(1, min(255, Int(pixel.green) + _brightness)))

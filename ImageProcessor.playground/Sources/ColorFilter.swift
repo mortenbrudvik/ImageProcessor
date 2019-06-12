@@ -14,7 +14,8 @@ public class ColorFilter : ImageFilterProtocol{
         _colorType = colorFilterType
     }
     
-    public func apply(var pixel: Pixel) -> Pixel {
+    public func apply(pixel: Pixel) -> Pixel {
+        var pixel = pixel
         var redValue = 0
         var blueValue = 0
         var greenValue = 0
